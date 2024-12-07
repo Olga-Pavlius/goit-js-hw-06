@@ -11,7 +11,10 @@ class Storage {
     this.#items.push(newItem);
   }
  removeItem(itemToRemove) {
-   this.#items.filter(item => item !== itemToRemove);
+  const index = this.#items.indexOf(itemToRemove);
+    if (index !== -1) {
+      this.#items.splice(index, 1); 
+    }
   }
 }
 const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
